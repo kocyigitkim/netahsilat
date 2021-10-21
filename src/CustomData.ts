@@ -1,7 +1,7 @@
 export class CustomData {
-    EntityId: number;
-    Id: string;
-    Value: string;
-    Editable: number;
-    Visible: number;
+    public EntityId: number;
+    public Id: string;
+    public Value: string;
+    public Editable: number;
+    public Visible: number;
 }

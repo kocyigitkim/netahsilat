@@ -1,13 +1,13 @@
 export class Delivery {
-    Company: string;
-    FName: string;
-    LName: string;
-    Phone: string;
-    Mobile: string;
-    Email: string;
-    Address: string;
-    Zip: string;
-    City: string;
-    District: string;
-    Neighborhood: string;
+    public Company: string;
+    public FName: string;
+    public LName: string;
+    public Phone: string;
+    public Mobile: string;
+    public Email: string;
+    public Address: string;
+    public Zip: string;
+    public City: string;
+    public District: string;
+    public Neighborhood: string;
 }

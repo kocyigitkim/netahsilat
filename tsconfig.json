@@ -10,7 +10,8 @@
     "alwaysStrict": false,
     "strict": false,
     "sourceMap": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true
   },
   "include": ["src/**/*", "__tests__/**/*"]
 }

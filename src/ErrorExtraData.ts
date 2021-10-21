@@ -1,4 +1,4 @@
 export class ErrorExtraData {
-    Name: string;
-    Value: string;
+    public Name: string;
+    public Value: string;
 }

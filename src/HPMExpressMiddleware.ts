@@ -9,16 +9,12 @@ import { PaymentFailedResponseForm, PaymentSuccessResponseForm } from './Respons
 import { SerializationType } from './SerializationType';
 import { User } from './User';
 
-export interface HPMMakeRequestAction {
-    (request: HttpPostRequestMessage, req: express.Request, res: express.Response): Boolean | Promise<Boolean>;
-}
-
 export interface HPMPaymentRequestSuccessAction {
-    (response: HttpPostResponseMessage, req: express.Request): { title: string, message: string };
+    public(response: HttpPostResponseMessage, req: express.Request): { title: string, message: string };
 }
 
 export interface HPMPaymentRequestFailedAction {
-    (response: HttpPostResponseMessage, req: express.Request): { title: string, message: string };
+    public(response: HttpPostResponseMessage, req: express.Request): { title: string, message: string };
 }
 
 export class HPMExpressMiddleware {
@@ -34,7 +30,7 @@ export class HPMExpressMiddleware {
         this.baseUrl = baseUrl;
         this.key = key;
     }
-    public usePaymentProcess(action: HPMMakeRequestAction) {
+    public usePaymentProcess(action: (request: HttpPostRequestMessage, req: express.Request, res: express.Response) => Promise<Boolean> | Boolean) {
         this.app.use(`${this.path}/process`, async (req, res, next) => {
             var request = new HttpPostRequestMessage();
             request.User = new User();
@@ -54,7 +50,7 @@ export class HPMExpressMiddleware {
             res.send(HPMHelper.BuildForm(this.hpmUrl, this.key, request, SerializationType.JSON));
         });
     }
-    public usePaymentSuccess(action: HPMPaymentRequestSuccessAction) {
+    public usePaymentSuccess(action: (response: HttpPostResponseMessage, req: express.Request) => { title: string, message: string }) {
         this.app.use(`${this.path}/success`, async (req, res, next) => {
             var response = HPMHelper.ReceivePaymentRequest(req.body, SerializationType.JSON);
             var r = action(response, req);
@@ -72,7 +68,7 @@ export class HPMExpressMiddleware {
             res.send(PaymentSuccessResponseForm(r.title, r.message));
         });
     }
-    public usePaymentFailed(action: HPMPaymentRequestFailedAction) {
+    public usePaymentFailed(action: (response: HttpPostResponseMessage, req: express.Request) => { title: string, message: string }) {
         this.app.use(`${this.path}/failed`, async (req, res, next) => {
             var response = HPMHelper.ReceivePaymentRequest(req.body, SerializationType.JSON);
             var r = action(response, req);
