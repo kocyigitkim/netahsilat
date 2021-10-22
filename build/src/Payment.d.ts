@@ -1,0 +1,42 @@
+import { AmountEditType } from "./AmountEditType";
+import { CustomData } from "./CustomData";
+export declare class Payment {
+    ForceSavingCCNumber: number;
+    VendorCode: string;
+    CardOwnerName: string;
+    CardNumber: string;
+    CardCVV: string;
+    CardMonth: number;
+    CardYear: number;
+    BinList: number[];
+    CardType: number;
+    PaymentSetId: number;
+    Partial: number;
+    MaxInst: number;
+    CreditCardEntryMode: number;
+    CallId: string;
+    VendorId: number;
+    VendorTaxNum: string;
+    VendorErpCode: string;
+    VendorEmail: string;
+    Type: number;
+    ChargeType: number;
+    GiftcardAmount: number;
+    Amount: number;
+    AmntEdit: AmountEditType;
+    Currency: string;
+    SuccessUrl: string;
+    FailUrl: string;
+    ReturnUrl: string;
+    IPNUrl: string;
+    RefundIPNUrl: string;
+    MaxFailCount: number;
+    ReturnType: number;
+    Timeout: number;
+    DefUserId: number;
+    Test: number;
+    Method: number[];
+    CData: CustomData[];
+    IVRSessionId: string;
+}
+//# sourceMappingURL=Payment.d.ts.map

@@ -38,6 +38,7 @@ export class HPMExpressMiddleware {
             request.Payment = new Payment();
             request.Payment.SuccessUrl = `${this.baseUrl}${this.path}/success`;
             request.Payment.FailUrl = `${this.baseUrl}${this.path}/failed`;
+            request.Payment.ReturnUrl = `${this.baseUrl}${this.path}/return`;
 
             request.Delivery = new Delivery();
             var r = action(request, req, res);

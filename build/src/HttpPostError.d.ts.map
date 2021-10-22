@@ -1,0 +1,1 @@
+{"version":3,"file":"HttpPostError.d.ts","sourceRoot":"","sources":["../../src/HttpPostError.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,kBAAkB,CAAC;AAElD,qBAAa,aAAa;IACtB,IAAI,EAAE,MAAM,CAAC;IACb,OAAO,EAAE,MAAM,CAAC;IAChB,SAAS,EAAE,cAAc,EAAE,CAAC;CAC/B"}
